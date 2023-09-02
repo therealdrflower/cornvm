@@ -5,3 +5,4 @@
 22 = Multiply(22,num1,num2)
 21 = Divide (21, num1, num2)
 12 = Subtract (12, num1,num2)
+30 = Print to console (30, NumbersToPrint)
