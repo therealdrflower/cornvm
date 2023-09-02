@@ -1,0 +1,7 @@
+10 = new variable, after that type a custom name for the variable and then the value
+0 = stop program (success)
+1 = stop program (failure)
+11 = Add (11, num1, num2)
+22 = Multiply(22,num1,num2)
+21 = Divide (21, num1, num2)
+12 = Subtract (12, num1,num2)
