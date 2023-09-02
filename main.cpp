@@ -1,81 +1,128 @@
 #include <iostream>
 #include <cstdio>
 #include <math.h>
+#include <string>
+#include <vector>
+#include <fstream>
+
 
 using namespace std;
 
 const int maxText = 1024;
-double code[maxText] = {1010, 31,4.5,45.5};
+//Edit the array below to program the Virtual Machine.
+string code[maxText] = {"print","hello Corn","success"};
+//Commands
+string STOPGOOD = "success";
+string STOPBAD = "failure";
+string VAR = "var";
+string ADD = "add";
+string MUL = "multiply";
+string DIV = "divide";
+string SUB = "subtract";
+string PRINT = "print";
+string EASTEREGG = "easteregg69funny";
+string POW = "pow";
+//string POW = "power";
+string SQRT = "sqrt"; 
+//string SQRT = "squareroot";
+string FUNC = "function";
+string VAROVER = "varOveride";
+string FUNCOVER = "funcOveride";
+string PRNTVAR = "printVar";
 
-int version = 1010;
+std::vector<std::string> ram;
 
-//Keynum
-int STOPGOOD = 0;
-int STOPBAD = 1;
-int VAR = 10;
-int ADD = 11;
-int MUL = 22;
-int DIV = 21;
-int SUB = 12;
-int PRINT = 30;
-int EASTEREGG = 69;
-int POW = 31;
-int SQRT = 32; 
 
-int main()
-{
-    if(code[0] == version){
-        printf("\nNUM-C READER VERSION 1010\n\n");
-    }else{
-        printf("FAILURE! Unable to find matching version\n");
-        return 1;
+int findElementPosition(const std::vector<std::string>& vec, const std::string& element) {
+    for (int i = 0; i < vec.size(); ++i) {
+        if (vec[i] == element) {
+            return i;
+        }
     }
-    for (int i = 1; i < maxText; i++)
+    return -1; // Element not found
+}
+
+int stopgood()
+{
+    printf("Program stoped (success)\n");
+    return 0;
+}
+
+int stopbad()
+{
+    printf("Program stopped (failure)\n");
+    return 1;
+}
+
+int vm()
+{
+    
+    printf("\nWELCOME TO THE CORN PROGRAMMING LANGUAGE\n\n");
+    for (int i = 0; i < maxText; i++)
     {
         if(code[i] == STOPGOOD)
         {
-            printf("Program stoped (success)\n");
+            stopgood();
             return 0;
         }
         else if(code[i] == STOPBAD)
         {
-            printf("Program stopped (failure)\n");
-            return 1;
+            stopbad();
+            return 0;
         }else if(code[i] == VAR)
         {
-            int name = code[i + 1];
-            int value = code[i + 2];
-            cout << "NAME " << name << " VALUE " << value << "\n" << endl;
+            //Name
+            ram.push_back(code[i+1]);
+            //Value
+            ram.push_back(code[i+2]);  
             i++;
             i++;
+            //cout << "Attention, variables are not implemented and will do nothing but trigger Undefined errors.\n" << endl;
 
-        }else if(code[i] == ADD)
+        }else if(code[i] == PRNTVAR)
         {
-            int num_one = code[i+1];
-            int num_two = code[i+2];
-            cout << num_one + num_two << endl;;
+            string name = code[i + 1];
+            int namePos = findElementPosition(ram, name);
+            string value = ram[namePos + 1];
+            if (namePos != -1) {
+                cout << value << "\n" << endl;
+            } else {
+                cout << "Cannot print value of variable!" << endl;
+                return 1;
+            }
+            i++;
+        }
+        else if(code[i] == FUNC)
+        {
+            cout << "Attention, functions are not implemented and will do nothing but trigger Undefined errors.\n" << endl;
+        }
+        else if(code[i] == ADD)
+        {
+            int num_one = stoi(code[i+1]);
+            int num_two = stoi(code[i+2]);
+            cout << num_one + num_two << endl;
             i++;
             i++;
         }else if(code[i] == SUB)
         {
-            int num_one = code[i+1];
-            int num_two = code[i+2];
-            cout << num_one - num_two << endl;;
+            int num_one = stoi(code[i+1]);
+            int num_two = stoi(code[i+2]);
+            cout << num_one - num_two << endl;
             i++;
             i++;
 
         }else if(code[i] == MUL)
         {
-            int num_one = code[i+1];
-            int num_two = code[i+2];
-            cout << num_one * num_two << endl;;
+            int num_one = stoi(code[i+1]);
+            int num_two = stoi(code[i+2]);
+            cout << num_one * num_two << endl;
             i++;
             i++;
         }else if(code[i] == DIV)
         {
-            int num_one = code[i+1];
-            int num_two = code[i+2];
-            cout << num_one / num_two << endl;;
+            int num_one = stoi(code[i+1]);
+            int num_two = stoi(code[i+2]);
+            cout << num_one / num_two << endl;
             i++;
             i++;
         }else if(code[i] == PRINT)
@@ -90,21 +137,26 @@ int main()
             }
         }else if(code[i] == POW)
         {
-            double num1 = code[i + 1];
-            double num2 = code[i + 2];
+            double num1 = stoi(code[i + 1]);
+            double num2 = stoi(code[i + 2]);
             double result = pow(num1,num2);
             cout << result << endl;
             i++;
             i++;
         }else if(code[i] == SQRT)
         {
-            double number = code[i + 1];
+            double number = stoi(code[i + 1]);
             cout << fixed << sqrt(number) << endl;
             i++;
         }
         else{
-            printf("Undefined keynum at %d\n", i);
+            printf("Undefined command at %d\n", i);
             return 1;
         }
     }
+}
+int main()
+{
+    vm();
+    return 0;
 }

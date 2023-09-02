@@ -1,0 +1,3 @@
+clang main.cpp -lstdc++ -std=c++11;
+clear
+./a.out

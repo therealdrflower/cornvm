@@ -1,9 +1,10 @@
-10 = new variable, after that type a custom name for the variable and then the value
-0 = stop program (success)
-1 = stop program (failure)
-11 = Add (11, num1, num2)
-22 = Multiply(22,num1,num2)
-21 = Divide (21, num1, num2)
-12 = Subtract (12, num1,num2)
-31 = Power(31,num1,num2)
-32 = Square Root(32,num)
+success = stop program (success)
+failure = stop program (failure)
+add = Add (add, num1, num2)
+multiply = Multiply(multiply,num1,num2)
+divide = Divide (divide, num1, num2)
+subtract = Subtract (subtract, num1,num2)
+pow = Power(pow,num1,num2)
+sqrt = Square Root(sqrt,num)
+
+"stoi: no conversion" means that you inputed a string instead of integer in a math function.
