@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cstdio>
-#include <vector>
+#include <math.h>
 
 using namespace std;
 
 const int maxText = 1024;
-int code[maxText] = {1010, 30,56};
+double code[maxText] = {1010, 31,4.5,45.5};
 
 int version = 1010;
 
@@ -18,7 +18,9 @@ int MUL = 22;
 int DIV = 21;
 int SUB = 12;
 int PRINT = 30;
-
+int EASTEREGG = 69;
+int POW = 31;
+int SQRT = 32; 
 
 int main()
 {
@@ -26,6 +28,7 @@ int main()
         printf("\nNUM-C READER VERSION 1010\n\n");
     }else{
         printf("FAILURE! Unable to find matching version\n");
+        return 1;
     }
     for (int i = 1; i < maxText; i++)
     {
@@ -79,9 +82,28 @@ int main()
         {
             cout << code[i + 1] << endl;
             i++;
+        }else if(code[i] == EASTEREGG)
+        {
+            for(int t = 1; t < 70; t++)
+            {
+                cout << "Haha very funny number, I want a new funny number " << t << endl;
+            }
+        }else if(code[i] == POW)
+        {
+            double num1 = code[i + 1];
+            double num2 = code[i + 2];
+            double result = pow(num1,num2);
+            cout << result << endl;
+            i++;
+            i++;
+        }else if(code[i] == SQRT)
+        {
+            double number = code[i + 1];
+            cout << fixed << sqrt(number) << endl;
+            i++;
         }
         else{
-            printf("Undefined keybin at %d\n", i);
+            printf("Undefined keynum at %d\n", i);
             return 1;
         }
     }
