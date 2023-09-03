@@ -8,7 +8,7 @@ In terminal, type `bash run` to compile with clang, change it for GCC if you wan
 Use your own method (sorry)
 
 ## Features:
-Create variables
+Create variables\n
 Print variables
 Do math
 Stop programm (success or failure)
