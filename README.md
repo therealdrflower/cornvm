@@ -9,11 +9,11 @@ Use your own method (sorry)
 
 ## Features:
 Create variables<br />
-Print variables_
-Do math_
-Stop programm (success or failure)_
+Print variables<br />
+Do math<br />
+Stop programm (success or failure)<br />
 
 ## I want to add
-Functions__
-Loops__
-If and If else, etc__
+Functions<br />
+Loops<br />
+If and If else, etc (Working on it!) <br />
