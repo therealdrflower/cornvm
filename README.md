@@ -8,12 +8,12 @@ In terminal, type `bash run` to compile with clang, change it for GCC if you wan
 Use your own method (sorry)
 
 ## Features:
-Create variables\n
-Print variables
-Do math
-Stop programm (success or failure)
+Create variables.
+Print variables.
+Do math.
+Stop programm (success or failure).
 
 ## I want to add
-Functions
-Loops
+Functions.
+Loops.
 If and If else, etc.
